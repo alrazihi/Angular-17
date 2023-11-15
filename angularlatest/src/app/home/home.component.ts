@@ -19,19 +19,21 @@ import { HousingService } from '../housing.service';
       </form>
     </section>
     <section class="results">
-    <app-housing-location
-  *ngFor="let housingLocation of housingLocationList"
-  [housingLocation]="housingLocation">
-</app-housing-location>
+      <app-housing-location
+        *ngFor="let housingLocation of housingLocationList"
+        [housingLocation]="housingLocation">
+      </app-housing-location>
     </section>
   `,
   styleUrls: ['./home.component.css'],
 })
+
 export class HomeComponent {
   housingLocationList: HousingLocation[] = [];
-housingService: HousingService = inject(HousingService);
+  housingService: HousingService = inject(HousingService);
 
-constructor() {
-  this.housingLocationList = this.housingService.getAllHousingLocations();
-}
+  constructor() {
+    this.housingLocationList = this.housingService.getAllHousingLocations();
+  }
+
 }
